@@ -21,7 +21,7 @@ public class TypeDao {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while(resultSet.next()){
-                String name = resultSet.getString("name");
+                String name = resultSet.getString("type");
                 typeBook = new TypeBook(id, name);
             }
 
@@ -49,7 +49,9 @@ public class TypeDao {
                 String name = resultSet.getString("name");
 
                 TypeBook typeBook = new TypeBook(typeId, name);
-                allBookTypes.add(typeBook);
+                if(typeBook != null) {
+                    allBookTypes.add(typeBook);
+                }
             }
 
             resultSet.close();
