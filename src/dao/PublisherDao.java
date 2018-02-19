@@ -17,7 +17,7 @@ public class PublisherDao {
 
         try {
             preparedStatement = DbConnection.getConnection().prepareStatement(query);
-            preparedStatement.setInt(1, id);
+            preparedStatement.setString(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while(resultSet.next()){
@@ -37,7 +37,7 @@ public class PublisherDao {
 
     }
 
-    public ArrayList<Publisher> importAllPublishers(String id){
+    public ArrayList<Publisher> importAllPublishers(){
         ArrayList<Publisher> allPublishers = new ArrayList<>();
         PreparedStatement preparedStatement = null;
         String query = "select * from Publishers";
@@ -48,12 +48,11 @@ public class PublisherDao {
 
             while(resultSet.next()){
                 String id = resultSet.getString("publishers_id");
-                String name = resultSet.getString("name");
-                String city = resultSet.getString("city");
-                String country = resultSet.getString("country");
 
-                Publisher publisher = new Publisher(id, name, city, country);
-                allPublishers.add(publisher);
+                Publisher publisher = importPublisher(id);
+                if(publisher != null) {
+                    allPublishers.add(publisher);
+                }
             }
 
             resultSet.close();
