@@ -50,7 +50,8 @@ public class ViewRoot {
         boolean isInputInt = false;
         do{
             try {
-                input = Integer.parseInt(getUserInput(message));
+                String stringInput = getUserInput(message);
+                input = Integer.parseInt(stringInput);
                 isInputInt = true;
             } catch (NumberFormatException e) {
                 e.printStackTrace();
@@ -58,6 +59,45 @@ public class ViewRoot {
         }while (!isInputInt);
 
         return input;
+    }
+
+    public Float getUserFloatInput(String message){
+        Float input = null;
+        boolean isInputInt = false;
+        do{
+            try {
+                String stringInput = getUserInput(message);
+                input = Float.parseFloat(stringInput);
+                isInputInt = true;
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
+        }while (!isInputInt);
+
+        return input;
+    }
+
+    public Long getUserLongInput(String message){
+        Long input = null;
+        boolean isInputInt = false;
+        do{
+            try {
+                String stringInput = getUserInput(message);
+                input = Long.parseLong(stringInput);
+                isInputInt = true;
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
+        }while (!isInputInt);
+
+        return input;
+    }
+
+    public <T> void showCollecton(ArrayList<T> collection){
+        int counter = 0;
+        for(T item: collection){
+            showMessage("ID " + counter++ + ": " + item.toString());
+        }
     }
 }
 
