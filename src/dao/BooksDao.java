@@ -124,4 +124,8 @@ public class BooksDao {
         }
     }
 
-}
+    public void addBook(Book book){
+            System.out.println("Implementation in progress");
+        }
+
+    }

@@ -29,8 +29,7 @@ public class Root {
             viewRoot.showMainOptions(name);
             String option = viewRoot.getUserInput("Choose option: ");
             switch(option){
-                case "1":
-                viewRoot.showMessage(getBook().toString());
+                case "1": addNewBook();
                 break;
                 case "2": viewRoot.showMessage("2");
                 break;
@@ -144,5 +143,6 @@ public class Root {
 
         Book newBook = new Book(isbn, author, title, publisher, publicationYear, price, typeBook);
 
+        new BooksDao().addBook(newBook);
     }
 }

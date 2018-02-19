@@ -24,6 +24,29 @@ public class Book {
         return title;
     }
 
+    public TypeBook getTypeBook() {
+        return typeBook;
+    }
+
+    public Float getPrice() {
+
+        return price;
+    }
+
+    public Integer getPublicationYear() {
+
+        return publicationYear;
+    }
+
+    public Author getAuthor() {
+
+        return author;
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
     public Long getISBN() {
         return ISBN;
     }
