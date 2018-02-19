@@ -1,15 +1,15 @@
 package model;
 
-public class Publisher {
+public class Publisher extends Person{
     private String publisherId;
-    private String name;
-    private String city;
-    private String country;
 
     public Publisher(String publisherId, String name, String city, String country) {
+        super(name, city, country);
         this.publisherId = publisherId;
-        this.name = name;
-        this.city = city;
-        this.country = country;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }
